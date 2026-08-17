@@ -1,6 +1,6 @@
 import java.text.NumberFormat;
 
-public class Produto {
+public abstract class Produto {
 	
 	private static final double MARGEM_PADRAO = 0.2;
 	protected String descricao;
@@ -67,4 +67,15 @@ public class Produto {
     	
 		return String.format("NOME: " + descricao + ": " + moeda.format(valorDeVenda()));
 	}
+
+	public Boolean equals(Produto outroProduto) {
+		String desc1 = this.descricao.toLowerCase();
+		String desc2 = outroProduto.descricao.toLowerCase();
+
+		if (desc1.equals(desc2)) {
+			return true;
+		}
+
+		return false;
+	};
 }
